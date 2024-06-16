@@ -39,7 +39,7 @@ public class ProductDaoImpl implements ProductDao{
     @Override
     public int updateProductById(Integer id) {
         String sql = """
-               UPDATE "product" SET product_name = ?  WHERE id = ?
+               UPDATE "product" SET product_name = ? , product_code = ? , product_description = ?  WHERE id = ?
                """;
         try (  Connection connection = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/food_panda",
@@ -48,9 +48,13 @@ public class ProductDaoImpl implements ProductDao{
                PreparedStatement preparedStatement = connection.prepareStatement(sql);){
             Product product = searchProductById(id);
             if (product != null){
-                System.out.print("[+] Input product name: ");
+                System.out.print("[+] Input new product name: ");
                 preparedStatement.setString(1,new Scanner(System.in).next());
-                preparedStatement.setInt(2,id);
+                System.out.print("[+] Input new product code: ");
+                preparedStatement.setString(2,new Scanner(System.in).next());
+                System.out.print("[+] Input new product description: ");
+                preparedStatement.setString(3,new Scanner(System.in).next());
+                preparedStatement.setInt(4,id);
             }
             int rowAffected = preparedStatement.executeUpdate();
             String message = rowAffected>0 ? "Update Success" : "Update failed";

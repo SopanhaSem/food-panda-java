@@ -4,7 +4,7 @@ import model.entities.Customer;
 
 import java.util.List;
 
-interface CustomerDao {
+public interface CustomerDao {
     List<Customer> queryAllNewCustomer();
     int updateCustomerById(Integer id);
     int deleteCustomerById(Integer id);
