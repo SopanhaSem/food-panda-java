@@ -47,9 +47,12 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public void addNewCustomer(CustomerDto customerDto) {
         Customer customer = new Customer(
-                customerDto.id(),customerDto.name(),
-                customerDto.email(),customerDto.pass(),
-                customerDto.is_deleted(), customerDto.created_date());
+                customerDto.id(),
+                customerDto.name(),
+                customerDto.email(),
+                customerDto.pass(),
+                customerDto.is_deleted(),
+                customerDto.created_date());
        customerDao.addNewCustomer(customer);
     }
 

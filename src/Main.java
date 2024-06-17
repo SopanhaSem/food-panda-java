@@ -1,23 +1,13 @@
 import controller.CustomerController;
 import controller.OrderController;
 import controller.ProductController;
-import model.dao.CustomerDapImpl;
-import model.dao.OrderDaoImpl;
-import model.dao.ProductDaoImpl;
 import model.dto.CustomerDto;
 import model.dto.OrderDto;
 import model.dto.ProductDto;
 import model.entities.Customer;
-import model.entities.Order;
-import model.entities.Product;
-import service.ProductService;
-import service.ProductServiceImpl;
 import view.View;
-
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -103,9 +93,9 @@ public class Main {
                         break;
                     case 11:
                         System.out.print("🥹 Input order name: ");
-                        String orName = sc.next();
+                        String orName = sc.nextLine();
                         System.out.print("🥹 Input description: ");
-                        String oDescription = sc.next();
+                        String oDescription = sc.nextLine();
                         System.out.print("🥹 Input customer ID: ");
                         int oCusId = sc.nextInt();
                         Date orderedDate = Date.valueOf(LocalDate.now());
